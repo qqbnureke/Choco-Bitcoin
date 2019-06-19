@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/nav_info"
+        android:enabled="true"
+        android:icon="@drawable/ic_info_outline_grey"
+        android:title="@string/info"
+        app:showAsAction="always"/>
+
+    <item android:id="@+id/nav_history"
+        android:enabled="true"
+        android:icon="@drawable/ic_history_grey"
+        android:title="@string/history"
+        app:showAsAction="ifRoom"/>
+
+    <item android:id="@+id/nav_exchange"
+        android:enabled="true"
+        android:icon="@drawable/ic_repeat_grey"
+        android:title="@string/exchange"
+        app:showAsAction="always"/>
+
+</menu>
