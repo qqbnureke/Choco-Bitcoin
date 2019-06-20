@@ -15,6 +15,8 @@
 
     <string name="loading">Loading…</string>
     <string name="id">id:</string>
+    <string name="select_currency">Select Currency: </string>
+    <string name="_1_bch">1 BCH =</string>
 
     <string-array name="currency" translatable="false">
         <item>USD</item>
