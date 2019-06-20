@@ -5,6 +5,7 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 
@@ -20,6 +21,9 @@ public class MainActivity extends AppCompatActivity
 
     private static final String TAG = "MainActivity";
 
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
+
     @BindView(R.id.bottom_navigation_view)
     BottomNavigationView bottomNavigationView;
 
@@ -27,13 +31,16 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //bottomNavigationView = findViewById(R.id.bottom_navigation_view);
-
         ButterKnife.bind(MainActivity.this);
-//        bottomNavigationView.setSelectedItemId(R.id.nav_info);
-        getSupportFragmentManager().beginTransaction().replace(R.id.frameMain,new InfoFragment()).commit();
 
+        setSupportActionBar(toolbar);
+
+        getSupportFragmentManager().beginTransaction().replace(R.id.frameMain,new InfoFragment()).commit();
         bottomNavigationView.setOnNavigationItemSelectedListener(MainActivity.this);
+    }
+
+    public void setActionBarTitle(String title) {
+        getSupportActionBar().setTitle(title);
     }
 
     @Override
