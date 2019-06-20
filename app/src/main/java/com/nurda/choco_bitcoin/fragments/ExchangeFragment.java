@@ -108,7 +108,7 @@ public class ExchangeFragment extends Fragment implements AdapterView.OnItemSele
 
     private void makeRequest(final String s){
         Call call = ApiClient.provideCoindesk().create(ApiService.class)
-                .currentPrice(currentCurrency);
+                .getCurrentPrice(currentCurrency);
 
 
         call.enqueue(new Callback() {

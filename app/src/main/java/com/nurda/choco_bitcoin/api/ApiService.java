@@ -15,5 +15,13 @@ public interface ApiService {
     Call<List<Transaction>> getTransactions();
 
     @GET("currentprice/{code}.json")
-    Call<Object> currentPrice(@Path(value = "code") String code);
+    Call<Object> getCurrentPrice(@Path(value = "code") String code);
+
+    @GET("historical/close.json")
+    Call<Object> getHistoricalDate(
+            @Query("start") String startDate,
+            @Query("end") String endDate,
+            @Query("currency") String currency
+    );
+
 }
