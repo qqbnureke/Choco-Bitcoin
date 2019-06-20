@@ -2,6 +2,7 @@
     <string name="app_name">Choco-Bitcoin</string>
     <string name="info">Info</string>
     <string name="history">History</string>
+    <string name="transaction_history">Transaction History</string>
     <string name="exchange">Exchange</string>
 
     <!-- TODO: Remove or change this placeholder text -->
@@ -13,6 +14,7 @@
     <string name="equal">=</string>
 
     <string name="loading">Loading…</string>
+    <string name="id">id:</string>
 
     <string-array name="currency" translatable="false">
         <item>USD</item>

@@ -150,8 +150,9 @@ public class InfoFragment extends Fragment implements AdapterView.OnItemSelected
     }
 
     private void makeRequestForLastDate(String startDate,final int cur){
-        Log.d(TAG, "makeRequestForLastDate: ");
+        Log.d(TAG, "makeRequestForLastDate: startDate::: " +startDate);
         String endDate = DateHelper.getCurrentTime();
+        Log.d(TAG, "makeRequestForLastDate: endDate::: " +endDate);
 
         graphData.clear();
         Call call = ApiClient.provideCoindesk().create(ApiService.class)
@@ -252,6 +253,8 @@ public class InfoFragment extends Fragment implements AdapterView.OnItemSelected
         xAxis.setValueFormatter(new IndexAxisValueFormatter(xAxisLabels));
         xAxis.setGranularity(1);
         xAxis.setLabelCount(xAxisLabels.length, true);
+        
+        lineChart.invalidate();
 
     }
 
@@ -272,7 +275,7 @@ public class InfoFragment extends Fragment implements AdapterView.OnItemSelected
     }
 
     private void setMonthLine(){
-         strArr = new ArrayList<>();
+        strArr = new ArrayList<>();
         int count = 0;
         float d = 0f;
         for (int i=0;i<graphData.size();i++){
@@ -292,12 +295,12 @@ public class InfoFragment extends Fragment implements AdapterView.OnItemSelected
         btn_week.setBackgroundResource(R.color.white);
         btn_week.setTextColor(Color.parseColor("#d8d8d8"));
 
-
+        Log.d(TAG, "setMonthLine: strArrSizeLL: " + strArr.size());
+        Log.d(TAG, "setMonthLine: graphSize:: " + graphData.size());
         configureLineChart(strArr, getResources().getStringArray(R.array.weeks));
     }
 
     private void setYearLine(){
-
         strArr = new ArrayList<>();
         int count = 0;
         float d = 0f;
@@ -318,6 +321,7 @@ public class InfoFragment extends Fragment implements AdapterView.OnItemSelected
         btn_week.setBackgroundResource(R.color.white);
         btn_week.setTextColor(Color.parseColor("#d8d8d8"));
 
+        Log.d(TAG, "setYearLine: " + strArr.size());
         configureLineChart(strArr, getResources().getStringArray(R.array.months_name));
     }
 

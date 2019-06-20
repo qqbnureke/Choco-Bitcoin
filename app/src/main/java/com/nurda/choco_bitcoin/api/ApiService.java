@@ -11,7 +11,7 @@ import retrofit2.http.Query;
 public interface ApiService {
 
 
-    @GET("api/transactions/")
+    @GET("api/v2/transactions/btcusd/")
     Call<List<Transaction>> getTransactions();
 
     @GET("currentprice/{code}.json")

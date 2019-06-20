@@ -87,7 +87,7 @@ public class ExchangeFragment extends Fragment implements AdapterView.OnItemSele
     public void setSpinner(){
         ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(getActivity(),
                 android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.currency));
-        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerAdapter.setDropDownViewResource(R.layout.spinner_item);
         spinnerAdapter.notifyDataSetChanged();
         spinner.setAdapter(spinnerAdapter);
         spinner.setSelection(0);

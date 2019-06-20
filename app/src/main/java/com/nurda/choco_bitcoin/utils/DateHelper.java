@@ -10,9 +10,17 @@ public class DateHelper {
     private static long now = System.currentTimeMillis();
     private static long oneDay = 1000L * 60 * 60 * 24;
 
-    private static String millisecondsToDate(long milliseconds){
+    public static String millisecondsToDate(long milliseconds){
         @SuppressLint("SimpleDateFormat")
         DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(milliseconds);
+        return formatter.format(calendar.getTime());
+    }
+
+    public static String millisecondsToTime(long milliseconds){
+        @SuppressLint("SimpleDateFormat")
+        DateFormat formatter = new SimpleDateFormat("dd-MM-yyyy hh:mm");
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(milliseconds);
         return formatter.format(calendar.getTime());

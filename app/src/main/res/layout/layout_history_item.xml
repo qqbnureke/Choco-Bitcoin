@@ -1,37 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/white"
+    android:padding="10dp"
+    android:layout_marginStart="20dp"
+    android:layout_marginEnd="20dp"
     android:orientation="horizontal">
 
-    <TextView
-        android:layout_weight=".33"
-        android:id="@+id/tv_transaction_amount"
-        android:layout_width="0dp"
-        android:gravity="center"
-        android:layout_height="wrap_content"
-        android:text="10000"
-        />
 
     <TextView
-        android:layout_weight="0.33"
-        android:id="@+id/tv_transaction_date"
-        android:layout_width="0dp"
-        android:gravity="center"
-        android:layout_height="wrap_content"
-        android:text="18.06.2019"
-        />
+        android:id="@+id/tv_transaction_number"
+        style="@style/history_item_label"
+        android:layout_weight=".1" />
+
+    <LinearLayout
+        android:layout_weight=".35"
+        android:orientation="vertical"
+        android:layout_marginStart="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_transaction_amount"
+            style="@style/history_item_label"
+            android:layout_width="wrap_content"
+            android:layout_gravity="start"
+            android:padding="2dp" />
+
+        <TextView
+            android:id="@+id/tv_transaction_date"
+            style="@style/history_item_label"
+            android:layout_width="wrap_content"
+            android:layout_gravity="start"
+            android:padding="2dp"
+            android:textSize="12sp" />
+
+    </LinearLayout>
 
     <TextView
-        android:layout_weight=".33"
         android:id="@+id/tv_transaction_type"
-        android:layout_width="0dp"
-        android:gravity="center"
-        android:layout_height="wrap_content"
-        android:text="Sell"/>
+        style="@style/history_item_label"
+        android:padding="2dp"
+        android:gravity="start"
+        android:layout_weight=".25" />
 
+    <ImageView
+        android:id="@+id/iv_trade"
+        android:layout_marginEnd="10dp"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_gravity="center" />
 
 
 </LinearLayout>
