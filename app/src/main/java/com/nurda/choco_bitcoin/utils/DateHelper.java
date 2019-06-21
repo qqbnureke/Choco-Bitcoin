@@ -2,9 +2,11 @@ package com.nurda.choco_bitcoin.utils;
 
 import android.annotation.SuppressLint;
 
+import java.sql.SQLOutput;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Locale;
 
 public class DateHelper {
     private static long now = System.currentTimeMillis();
@@ -44,4 +46,32 @@ public class DateHelper {
         long oneYear = now - oneDay * 365;
         return millisecondsToDate(oneYear);
     }
+
+    public static String[] getWeekNames(){
+        String [] weekNames = new String[7];
+        Calendar cal = Calendar.getInstance();
+        cal.add(Calendar.DAY_OF_YEAR, -8);
+
+        for(int i = 0; i< 7; i++){
+            cal.add(Calendar.DAY_OF_WEEK, 1);
+            weekNames[i] = cal.getDisplayName(Calendar.DAY_OF_WEEK, Calendar.SHORT, Locale.getDefault());
+        };
+
+        return weekNames;
+    }
+
+    public static String[] getMonthNames(){
+        String [] monthNames = new String[12];
+        Calendar cal = Calendar.getInstance();
+        cal.add(Calendar.MONTH, -12);
+
+        for (int i=0;i<12;i++){
+            cal.add(Calendar.MONTH, 1);
+            monthNames[i] = cal.getDisplayName(Calendar.MONTH, Calendar.SHORT, Locale.getDefault());
+        }
+
+        return monthNames;
+
+    }
+
 }

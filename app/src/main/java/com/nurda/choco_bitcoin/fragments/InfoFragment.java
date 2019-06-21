@@ -2,8 +2,10 @@ package com.nurda.choco_bitcoin.fragments;
 
 
 import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.app.ProgressDialog;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -35,7 +37,10 @@ import com.nurda.choco_bitcoin.utils.DialogUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Iterator;
 
 import butterknife.BindView;
@@ -106,7 +111,7 @@ public class InfoFragment extends Fragment implements AdapterView.OnItemSelected
     public void setSpinner(){
         ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(getActivity(),
                 android.R.layout.simple_spinner_item, currencyNames);
-        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerAdapter.setDropDownViewResource(R.layout.spinner_item);
         spinnerAdapter.notifyDataSetChanged();
         spinner.setAdapter(spinnerAdapter);
         spinner.setSelection(0);
@@ -237,7 +242,8 @@ public class InfoFragment extends Fragment implements AdapterView.OnItemSelected
     private void prepareDataForChart(){
         switch (currentButton){
             case WEEK_BUTTON:
-                setWeekLine(); break;
+                setWeekLine();
+                break;
             case MONTH_BUTTON:
                 setMonthLine(); break;
             case YEAR_BUTTON:
@@ -250,7 +256,8 @@ public class InfoFragment extends Fragment implements AdapterView.OnItemSelected
         lineChartData = new ArrayList<>();
         for (GraphResponse data : graphResponses)
             lineChartData.add((float) data.getPrice());
-        configureLineChart(lineChartData, getResources().getStringArray(R.array.days_name));
+
+        configureLineChart(lineChartData, DateHelper.getWeekNames());
     }
 
     private void setMonthLine(){
@@ -282,7 +289,8 @@ public class InfoFragment extends Fragment implements AdapterView.OnItemSelected
                 d=0f;
             }
         }
-        configureLineChart(lineChartData, getResources().getStringArray(R.array.months_name));
+
+        configureLineChart(lineChartData, DateHelper.getMonthNames());
     }
 
     private void configureLineChart(ArrayList<Float> data, String[] xAxisLabels){
